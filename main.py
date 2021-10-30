@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 
+st.set_page_config(page_title="Gnosis", layout="wide")
+
 def convert_to_wav(non_wav_file):
     pass
 
@@ -22,25 +24,48 @@ def display_audio_playback(file_name, files):
         if file_name == files[i].name:
             st.audio(files[i])
 
-st.header('Gnosis')
+st.title('Gnosis')
 
-# File uploader
-uploaded_files = st.file_uploader(
-    "Upload audio file(s)",
-    type=['wav','mp3'],
-    accept_multiple_files=True
-)
+col1, col2 = st.columns(2)
 
-# Displays dropdown menu if number of files > 1
-if len(uploaded_files) > 1:
-    dropdown_selection = st.selectbox(
-        "Choose audio file to play",
-        get_file_names(uploaded_files),
-        1
+with col1:
+    uploaded_files = st.file_uploader(
+        "Upload audio file(s)",
+        type=['wav','mp3'],
+        accept_multiple_files=True
     )
 
-    display_audio_playback(dropdown_selection, uploaded_files)
+with col2:
+    if len(uploaded_files) > 1:
+        dropdown_selection = st.selectbox(
+            "Choose audio file to play",
+            get_file_names(uploaded_files),
+            1
+        )
 
-# Displays only the audio player when number of files == 1
-if len(uploaded_files) == 1:
-    st.audio(uploaded_files[0])
+        display_audio_playback(dropdown_selection, uploaded_files)
+
+    # Displays only the audio player when number of files == 1
+    if len(uploaded_files) == 1:
+        st.audio(uploaded_files[0])    
+
+# File uploader
+# uploaded_files = st.file_uploader(
+#     "Upload audio file(s)",
+#     type=['wav','mp3'],
+#     accept_multiple_files=True
+# )
+
+# Displays dropdown menu if number of files > 1
+# if len(uploaded_files) > 1:
+#     dropdown_selection = st.selectbox(
+#         "Choose audio file to play",
+#         get_file_names(uploaded_files),
+#         1
+#     )
+
+#     display_audio_playback(dropdown_selection, uploaded_files)
+
+# # Displays only the audio player when number of files == 1
+# if len(uploaded_files) == 1:
+#     st.audio(uploaded_files[0])
