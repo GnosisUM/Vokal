@@ -19,8 +19,6 @@ st.set_page_config(
     },
 )
 
-st.title('Gnosis')
-
 def convert_to_wav(non_wav_file):
     sound = AudioSegment.from_mp3(mp3_file)
     sound.export("wav_file.wav", format="wav")
