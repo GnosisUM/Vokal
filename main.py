@@ -40,24 +40,24 @@ def display_audio_playback(file_name, files):
         if file_name == files[i].name:
             st.audio(files[i])
 
-def plot_waveform(file_name, files):
-    for i in range(len(files)):
-        if file_name == files[i].name:
-            spf = wave.open(files[i], "r")
+# def plot_waveform(file_name, files):
+#     for i in range(len(files)):
+#         if file_name == files[i].name:
+#             spf = wave.open(files[i], "r")
 
-    # Extract Raw Audio from Wav File
-    signal = spf.readframes(-1)
-    signal = np.fromstring(signal, "Int16")
+#     # Extract Raw Audio from Wav File
+#     signal = spf.readframes(-1)
+#     signal = np.fromstring(signal, "Int16")
 
-    # If Stereo
-    if spf.getnchannels() == 2:
-        print("Just mono files")
-        sys.exit(0)
+#     # If Stereo
+#     if spf.getnchannels() == 2:
+#         print("Just mono files")
+#         sys.exit(0)
 
-    plt.figure(1)
-    plt.title("Signal Wave...")
-    plt.plot(signal)
-    plt.show()
+#     plt.figure(1)
+#     plt.title("Signal Wave...")
+#     plt.plot(signal)
+#     plt.show()
 
 st.title('Gnosis')
 
@@ -81,8 +81,8 @@ with col2:
         )
 
         display_audio_playback(dropdown_selection, uploaded_files)
-        plot_waveform(dropdown_selection, uploaded_files)
+        # plot_waveform(dropdown_selection, uploaded_files)
 
     # Displays only the audio player when number of files == 1
     if len(uploaded_files) == 1:
-        st.audio(uploaded_files[0])    
+        st.audio(uploaded_files[0])
