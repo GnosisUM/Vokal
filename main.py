@@ -10,17 +10,16 @@ from pydub import AudioSegment
 st.set_page_config(
     page_title = 'Gnosis',
     page_icon = ":crocodile:",
+    layout = "wide",
     menu_items = {
         'Get Help': 'https://www.google.com/',
         'Report a bug': 'https://www.google.com/',
         'About': 
             "Submission by Team Gnosis for #BuildWithAI 2021 Hackathon Challenge 2"
-    }
+    },
 )
 
 st.title('Gnosis')
-
-st.set_page_config(page_title="Gnosis", layout="wide")
 
 def convert_to_wav(non_wav_file):
     sound = AudioSegment.from_mp3(mp3_file)
