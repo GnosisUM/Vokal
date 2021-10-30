@@ -19,13 +19,16 @@ st.set_page_config(
     },
 )
 
+# function to convert mp3 to wav
+# extra
 def convert_to_wav(non_wav_file):
     sound = AudioSegment.from_mp3(mp3_file)
     sound.export("wav_file.wav", format="wav")
 
 # function to compute audio using AI model
 def compute_audio(wav_file):
-    pass
+    csv_file = None # placeholder
+    return csv_file
 
 # function to get filename from a list
 def get_file_names(files):
@@ -39,6 +42,13 @@ def display_audio_playback(file_name, files):
     for i in range(len(files)):
         if file_name == files[i].name:
             st.audio(files[i])
+
+def display_data(csv_file):
+    st.dataframe(pd.DataFrame(
+        pd.read_csv("addresses.csv"),
+        
+    ))
+    
 
 # def plot_waveform(file_name, files):
 #     for i in range(len(files)):
@@ -60,6 +70,7 @@ def display_audio_playback(file_name, files):
 #     plt.show()
 
 st.title('Gnosis')
+
 
 col1, col2 = st.columns(2)
 
