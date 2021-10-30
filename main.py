@@ -26,6 +26,7 @@ def convert_to_wav(non_wav_file):
     sound.export("wav_file.wav", format="wav")
 
 # function to compute audio using AI model
+# where does the csv file get output to?
 def compute_audio(wav_file):
     csv_file = None # placeholder
     return csv_file
@@ -38,17 +39,18 @@ def get_file_names(files):
     return file_names
 
 # function to display audio player based on dropdown selection
-def display_audio_playback(file_name, files):
-    for i in range(len(files)):
-        if file_name == files[i].name:
-            st.audio(files[i])
+def display_audio_playback(file_name, files_list):
+    for i in range(len(files_list)):
+        if file_name == files_list[i].name:
+            st.audio(files_list[i])
 
+# function to display csv files
+# where do the csv files get saved to?
 def display_data(csv_file):
     st.dataframe(pd.DataFrame(
-        pd.read_csv("addresses.csv"),
+        pd.read_csv("csv-files/addresses.csv"),
         
     ))
-    
 
 # def plot_waveform(file_name, files):
 #     for i in range(len(files)):
@@ -92,6 +94,7 @@ with col2:
         )
 
         display_audio_playback(dropdown_selection, uploaded_files)
+        display_data("addresses.csv")
         # plot_waveform(dropdown_selection, uploaded_files)
 
     # Displays only the audio player when number of files == 1
