@@ -1,7 +1,17 @@
 import streamlit as st
-import pandas as pd
+from pathlib import Path
 
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
+st.header('Gnosis')
+
+user_uploaded_audio = st.file_uploader("Upload an audio file (wav, mp3)")
+
+def convert_to_wav(non_wav_file):
+    pass
+
+# function to compute audio using AI model
+def compute_audio(wav_file):
+    pass
+
+if user_uploaded_audio:
+    audio_bytes = user_uploaded_audio.read()
+    st.audio(audio_bytes)
