@@ -8,7 +8,7 @@ This is the repository for Challenge 2 in buildwithai.com competition 2021.
    
 3. Activate Python virtual environment with the following command:
    - Windows (Command Prompt)  
-   `bwai-env\Scripts\activate.bat`
+   `venv\Scripts\activate`
 
    - Linux  
     `source bwai-env/bin/activate`
