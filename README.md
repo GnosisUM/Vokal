@@ -7,11 +7,11 @@ This is the repository for Challenge 2 in buildwithai.com competition 2021.
 2. Open Terminal/Command Prompt and `cd` into repository folder
    
 3. Activate Python virtual environment with the following command:
-   - Windows (Command Prompt)
+   - Windows (Command Prompt)  
    `bwai-env\Scripts\activate.bat`
 
-   - Linux
+   - Linux  
     `source bwai-env/bin/activate`
 
-4. Install packages with the following command:
+4. Install packages with the following command:  
    `pip install -r requirements.txt`
