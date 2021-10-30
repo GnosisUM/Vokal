@@ -1,11 +1,13 @@
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+from pydub import AudioSegment
 
 st.set_page_config(page_title="Gnosis", layout="wide")
 
 def convert_to_wav(non_wav_file):
-    pass
+    sound = AudioSegment.from_mp3(mp3_file)
+    sound.export("wav_file.wav", format="wav")
 
 # function to compute audio using AI model
 def compute_audio(wav_file):
