@@ -1,9 +1,6 @@
 import streamlit as st
+import pandas as pd
 from pathlib import Path
-
-st.header('Gnosis')
-
-user_uploaded_audio = st.file_uploader("Upload an audio file (wav, mp3)")
 
 def convert_to_wav(non_wav_file):
     pass
@@ -12,6 +9,18 @@ def convert_to_wav(non_wav_file):
 def compute_audio(wav_file):
     pass
 
-if user_uploaded_audio:
-    audio_bytes = user_uploaded_audio.read()
-    st.audio(audio_bytes)
+def get_file_names(files):
+    file_names = []
+    for i in range(len(files)):
+        file_names.append(files[i].name)
+    return file_names
+
+st.header('Gnosis')
+
+uploaded_files = st.file_uploader("Upload an audio file (wav, mp3)", type=['wav','mp3'], accept_multiple_files=True)
+
+
+st.selectbox(
+    "Choose audio file to play",
+    get_file_names(uploaded_files)
+)
