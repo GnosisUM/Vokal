@@ -90,6 +90,7 @@ def save_upload(file):
 #     plt.show()
 
 st.title('Gnosis')
+st.caption('Remember to clear uploaded files before exiting the program')
 
 # create a temporary directory if not existed
 if not os.path.isdir(temp_path):
@@ -131,3 +132,8 @@ with col2:
     # Displays only the audio player when number of files == 1
     if len(uploaded_files) == 1:
         st.audio(uploaded_files[0])
+
+if st.button("Clear uploaded files"):
+    for f in os.listdir(temp_path):
+        os.remove(os.path.join(temp_path, f))
+    os.rmdir(temp_path)   
