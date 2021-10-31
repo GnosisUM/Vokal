@@ -76,32 +76,34 @@ if not os.path.isdir(temp_path):
     
 col1, col2 = st.columns(2)
 
-# File uploader
-uploaded_files = st.file_uploader(
-    "Upload audio file(s)",
-    type=['wav','mp3'],
-    accept_multiple_files=True
-)
-
-for i in range(len(uploaded_files)):
-    save_upload(uploaded_files[i])
-
-temp_list = get_file_names(uploaded_files)
-for i in range(len(temp_list)):
-    if temp_list[i].endswith('.mp3'):
-        convert_to_wav(temp_list[i], temp_path)
-
-# Displays dropdown menu if number of files > 1
-if len(uploaded_files) > 1:
-    dropdown_selection = st.selectbox(
-        "Choose audio file to play",
-        get_file_names(uploaded_files),
-        1
+with col1:
+    # File uploader
+    uploaded_files = st.file_uploader(
+        "Upload audio file(s)",
+        type=['wav','mp3'],
+        accept_multiple_files=True
     )
 
-    display_audio_playback(dropdown_selection, uploaded_files)
-    # plot_waveform(dropdown_selection, uploaded_files)
+    for i in range(len(uploaded_files)):
+        save_upload(uploaded_files[i])
 
-# Displays only the audio player when number of files == 1
-if len(uploaded_files) == 1:
-    st.audio(uploaded_files[0])
+    temp_list = get_file_names(uploaded_files)
+    for i in range(len(temp_list)):
+        if temp_list[i].endswith('.mp3'):
+            convert_to_wav(temp_list[i], temp_path)
+
+with col2:
+    # Displays dropdown menu if number of files > 1
+    if len(uploaded_files) > 1:
+        dropdown_selection = st.selectbox(
+            "Choose audio file to play",
+            get_file_names(uploaded_files),
+            1
+        )
+
+        display_audio_playback(dropdown_selection, uploaded_files)
+        # plot_waveform(dropdown_selection, uploaded_files)
+
+    # Displays only the audio player when number of files == 1
+    if len(uploaded_files) == 1:
+        st.audio(uploaded_files[0])
