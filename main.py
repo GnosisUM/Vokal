@@ -1,11 +1,11 @@
+import os
+import sys
+import wave
+import glob
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import wave
-import sys
-import os
-import glob
 from pathlib import Path
 from pydub import AudioSegment
 
