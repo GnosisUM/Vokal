@@ -26,6 +26,7 @@ st.set_page_config(
 def convert_to_wav(mp3_file_name: str, path: str):
     sound = AudioSegment.from_file(path+'/'+mp3_file_name, format='mp3')
     sound.export(path+'/'+mp3_file_name[:-4]+'.wav', format="wav")
+    os.remove(path+'/'+mp3_file_name)
 
 
 # function to compute audio using AI model
