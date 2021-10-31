@@ -15,3 +15,5 @@ This is the repository for Challenge 2 in buildwithai.com competition 2021.
 
 4. Install packages with the following command:  
    `pip install -r requirements.txt`
+   
+   bosku
