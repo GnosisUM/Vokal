@@ -48,7 +48,7 @@ def display_audio_playback(file_name, files_list):
 # where do the csv files get saved to?
 def display_data(csv_file):
     st.dataframe(pd.DataFrame(
-        pd.read_csv("csv-files/addresses.csv"),
+        pd.read_csv(csv_file), # replace argument with model output
         
     ))
 
@@ -94,7 +94,7 @@ with col2:
         )
 
         display_audio_playback(dropdown_selection, uploaded_files)
-        display_data("addresses.csv")
+        display_data("test-resources/addresses.csv")
         # plot_waveform(dropdown_selection, uploaded_files)
 
     # Displays only the audio player when number of files == 1
