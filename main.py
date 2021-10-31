@@ -133,8 +133,8 @@ with col2:
     if len(uploaded_files) == 1:
         st.audio(uploaded_files[0])
 
-# Clear tempDir folder and its content
+# Button to clear tempDir folder and its content
 if st.button("Clear uploaded files"):
     for f in os.listdir(temp_path):
         os.remove(os.path.join(temp_path, f))
-    os.rmdir(temp_path)   
+    os.rmdir(temp_path)
