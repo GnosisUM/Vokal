@@ -84,3 +84,11 @@ watchdog==2.1.6
 wcwidth==0.2.5
 webencodings==0.5.1
 widgetsnbextension==3.5.1
+wget
+git-lfs
+deepspeech
+SpeechRecognition
+google-cloud
+google-cloud-storage
+google-api-python-client
+oauth2client
