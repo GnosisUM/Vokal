@@ -24,10 +24,16 @@ st.set_page_config(
 )
 
 # function to convert .mp3 file to .wav file
-def convert_to_wav(mp3_file_name: str, path: str):
+def mp3_to_wav(mp3_file_name: str, path: str):
     sound = AudioSegment.from_file(path+'/'+mp3_file_name, format='mp3')
     sound.export(path+'/'+mp3_file_name[:-4]+'.wav', format="wav")
     os.remove(path+'/'+mp3_file_name)
+
+# function to convert .mp4 file to .wav file
+def mp4_to_wav(mp4_file_name: str, path: str):
+    sound = AudioSegment.from_file(path+'/'+mp4_file_name, format='mp4')
+    sound.export(path+'/'+mp4_file_name[:-4]+'.wav', format="wav")
+    os.remove(path+'/'+mp4_file_name)
 
 
 # function to compute audio using AI model
@@ -102,7 +108,7 @@ with col1:
     # File uploader
     uploaded_files = st.file_uploader(
         "Upload audio file(s)",
-        type=['wav','mp3'],
+        type=['wav','mp3','mp4'],
         accept_multiple_files=True
     )
 
@@ -114,7 +120,9 @@ with col1:
     temp_list = get_file_names(uploaded_files)
     for i in range(len(temp_list)):
         if temp_list[i].endswith('.mp3'):
-            convert_to_wav(temp_list[i], temp_path)
+            mp3_to_wav(temp_list[i], temp_path)
+        elif temp_list[i].endswith('.mp4'):
+            mp4_to_wav(temp_list[i], temp_path)
 
 with col2:
     # Displays dropdown menu if number of files > 1
