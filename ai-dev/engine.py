@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import soundfile as sf
 
-def to_df(segments):
+def to_df(segments) -> pd.DataFrame:
     start = [segment['start'] for segment in segments]
     end = [segment['end'] for segment in segments]
     label = [segment['label'] for segment in segments]
