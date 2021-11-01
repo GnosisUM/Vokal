@@ -10,6 +10,10 @@ from IPython.display import Audio, display
 #----------------#
 # Audio utilities
 #----------------#
+
+def rename(wavefile):
+    return wavefile.strip().replace(' ','_')
+
 def check_wav_16khz_mono(wavfile):
     """
     Returns True if a wav file is 16khz and single channel
