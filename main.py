@@ -1,15 +1,15 @@
 import os
-import sys
-import wave
-import glob
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 from pydub import AudioSegment
+import soundfile as sf
+
 
 from ai_dev.engine import run_diarization
+from ai_dev.utils import combined_waveplot
 
 temp_path = "./tempDir"
 
@@ -90,6 +90,13 @@ def save_upload(file):
 #     plt.plot(signal)
 #     plt.show()
 
+def display_description(WAV_FILE):
+    df, segments = run_diarization(WAV_FILE=WAV_FILE, embed_model='xvec', cluster_method='sc')
+    display_data(df)
+    signal, sr = sf.read(WAV_FILE)
+    st.pyplot(combined_waveplot(signal, sr, segments))
+
+
 st.title('Vokal.')
 st.caption('Remember to clear uploaded files before exiting the program')
 
@@ -127,16 +134,15 @@ with col2:
         )
 
         display_audio_playback(dropdown_selection, uploaded_files)
-        df = run_diarization(WAV_FILE=os.path.join(temp_path, dropdown_selection), embed_model='xvec', cluster_method='sc')
-        display_data(df)
-        #display_data("test-resources/addresses.csv") # replace argument with model output
-        # plot_waveform(dropdown_selection, uploaded_files)
+
+        WAV_FILE = os.path.join(temp_path, dropdown_selection)
+        display_description(WAV_FILE)
 
     # Displays only the audio player when number of files == 1
     if len(uploaded_files) == 1:
         st.audio(uploaded_files[0])
-        df = run_diarization(WAV_FILE=os.path.join(temp_path, dropdown_selection), embed_model='xvec', cluster_method='sc')
-        display_data(df)
+        WAV_FILE = os.path.join(temp_path, temp_list[0])
+        display_description(WAV_FILE)
 
 # for f in os.listdir(temp_path):
 #     os.remove(os.path.join(temp_path, f))
