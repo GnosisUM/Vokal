@@ -1,18 +1,14 @@
 import os
-import subprocess
-import sys
 from copy import deepcopy
 
 import numpy as np
-import pandas as pd
 import torch
 import torchaudio
-from sklearn.cluster import AgglomerativeClustering
 from speechbrain.pretrained import EncoderClassifier
 from tqdm.autonotebook import tqdm
 
-from cluster import cluster_AHC, cluster_SC
-from utils import (check_wav_16khz_mono, convert_wavfile)
+from ai_dev.cluster import cluster_AHC, cluster_SC
+from ai_dev.utils import (check_wav_16khz_mono, convert_wavfile)
 
 
 class Diarizer:
