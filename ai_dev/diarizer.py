@@ -214,12 +214,15 @@ class Diarizer:
             signal, fs = torchaudio.load(wav_file)
         else:
             print("Converting audio file to single channel WAV using ffmpeg...")
-            converted_wavfile = os.path.join(os.path.dirname(
-                wav_file), '{}_converted.wav'.format(recname))
+            converted_wavfile = os.path.join(os.path.dirname(wav_file), '{}_converted.wav'.format(recname))
             convert_wavfile(wav_file, converted_wavfile)
-            assert os.path.isfile(
-                converted_wavfile), "Couldn't find converted wav file, failed for some reason"
+            assert os.path.isfile(converted_wavfile), "Couldn't find converted wav file, failed for some reason"
             signal, fs = torchaudio.load(converted_wavfile)
+
+        try:
+            os.remove(converted_wavfile)
+        except UnboundLocalError:
+            pass
 
         print('Running VAD...')
         speech_ts = self.vad(signal[0])
