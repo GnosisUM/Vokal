@@ -17,7 +17,7 @@ st.set_page_config(
     layout = "wide",
     menu_items = {
         'Get Help': 'https://www.google.com/',
-        'Report a bug': 'https://www.google.com/',
+        'Report a bug': 'https://github.com/GnosisUM/Challenge-2_BuildWithAI/issues/new',
         'About': 
             "Submission by Team Gnosis for #BuildWithAI 2021 Hackathon Challenge 2"
     },
