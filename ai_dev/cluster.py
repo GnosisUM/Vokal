@@ -1,7 +1,5 @@
 import numpy as np
 
-import scipy.cluster.hierarchy as hcluster
-from scipy.sparse.csgraph import laplacian
 from scipy.ndimage import gaussian_filter
 from sklearn.cluster import AgglomerativeClustering, KMeans, SpectralClustering
 from sklearn.metrics import pairwise_distances
@@ -183,7 +181,7 @@ def compute_number_of_clusters(eigenvalues, max_clusters=None, stop_eigenvalue=1
         stop_eigenvalue: Do not look at eigenvalues smaller than this
 
     Returns:
-        Number of clusters as an integer
+        number of clusters as an integer
     """
     max_delta = 0
     max_delta_index = 0
