@@ -92,3 +92,8 @@ google-cloud
 google-cloud-storage
 google-api-python-client
 oauth2client
+scikit-learn==1.0.1
+scipy==1.7.1
+speechbrain==0.5.10
+torch==1.10.0
+torchaudio==0.10.0
