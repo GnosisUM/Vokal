@@ -95,8 +95,9 @@ def save_upload(file):
 #     plt.plot(signal)
 #     plt.show()
 
-st.title('Vokal.')
-st.caption('Remember to clear uploaded files before exiting the program')
+# st.title('Vokal.')
+st.image('./resource/Vokal.-colorized.png')
+# st.caption('Remember to clear uploaded files before exiting the program')
 
 # create a temporary directory if not existed
 if not os.path.isdir(temp_path):
@@ -123,6 +124,14 @@ with col1:
             mp3_to_wav(temp_list[i], temp_path)
         elif temp_list[i].endswith('.mp4'):
             mp4_to_wav(temp_list[i], temp_path)
+    
+    st.caption('Remember to clear uploaded files before exiting the program')
+
+    # Clear tempDir folder and its content
+    if st.button("Clear uploaded files"):
+        for f in os.listdir(temp_path):
+            os.remove(os.path.join(temp_path, f))
+        os.rmdir(temp_path)
 
 with col2:
     # Displays dropdown menu if number of files > 1
@@ -134,8 +143,9 @@ with col2:
         )
 
         display_audio_playback(dropdown_selection, uploaded_files)
-        display_data("test-resources/addresses.csv") # replace argument with model output
-        # plot_waveform(dropdown_selection, uploaded_files)
+        with st.expander('See attributes'):
+            display_data("test-resources/addresses.csv") # replace argument with model output
+            # plot_waveform(dropdown_selection, uploaded_files)
 
     # Displays only the audio player when number of files == 1
     if len(uploaded_files) == 1:
@@ -144,9 +154,3 @@ with col2:
 # for f in os.listdir(temp_path):
 #     os.remove(os.path.join(temp_path, f))
 # os.rmdir(temp_path)
-
-# Clear tempDir folder and its content
-if st.button("Clear uploaded files"):
-    for f in os.listdir(temp_path):
-        os.remove(os.path.join(temp_path, f))
-    os.rmdir(temp_path)
