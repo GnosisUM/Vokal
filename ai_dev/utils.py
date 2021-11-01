@@ -1,5 +1,4 @@
 import datetime
-import os
 import subprocess
 from pprint import pprint
 
