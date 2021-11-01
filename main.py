@@ -71,25 +71,6 @@ def save_upload(file):
     with open(os.path.join("tempDir",file.name),"wb") as f:
          f.write(file.getbuffer())
 
-# def plot_waveform(file_name, files):
-#     for i in range(len(files)):
-#         if file_name == files[i].name:
-#             spf = wave.open(files[i], "r")
-
-#     # Extract Raw Audio from Wav File
-#     signal = spf.readframes(-1)
-#     signal = np.fromstring(signal, "Int16")
-
-#     # If Stereo
-#     if spf.getnchannels() == 2:
-#         print("Just mono files")
-#         sys.exit(0)
-
-#     plt.figure(1)
-#     plt.title("Signal Wave...")
-#     plt.plot(signal)
-#     plt.show()
-
 def display_description(WAV_FILE):
     df, segments = run_diarization(WAV_FILE=WAV_FILE, embed_model='xvec', cluster_method='sc')
     display_data(df)
