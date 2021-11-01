@@ -44,4 +44,4 @@ def run_diarization(WAV_FILE: str, embed_model: str, cluster_method: str) -> pd.
                             threshold=2.5,
                             outfile='test.rttm')
 
-    return to_df(segments)
+    return to_df(segments), segments
