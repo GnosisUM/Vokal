@@ -1,16 +1,14 @@
-from diarizer import Diarizer
+from ai_dev.diarizer import Diarizer
 
-import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 import soundfile as sf
 
 def to_df(segments) -> pd.DataFrame:
-    start = [segment['start'] for segment in segments]
-    end = [segment['end'] for segment in segments]
-    label = [segment['label'] for segment in segments]
-    start_sample = [segment['start_sample'] for segment in segments]
-    end_sample = [segment['end_sample'] for segment in segments]
+    start = [seg['start'] for seg in segments]
+    end = [seg['end'] for seg in segments]
+    label = [seg['label'] for seg in segments]
+    start_sample = [seg['start_sample'] for seg in segments]
+    end_sample = [seg['end_sample'] for seg in segments]
     
     dictionary = {
         'start': start, 
@@ -42,7 +40,7 @@ def run_diarization(WAV_FILE: str, embed_model: str, cluster_method: str) -> pd.
                     period=0.75 # hop of window (in seconds)
                     )
 
-    segments = diar.diarize(WAV_FILE, 
+    segments = diar.diarize(WAV_FILE,
                             threshold=2.5,
                             outfile='test.rttm')
 
