@@ -10,6 +10,10 @@ from IPython.display import Audio, display
 #----------------#
 # Audio utilities
 #----------------#
+
+def rename(wavefile):
+    return wavefile.strip().replace(' ','_')
+
 def check_wav_16khz_mono(wavfile):
     """
     Returns True if a wav file is 16khz and single channel
@@ -60,7 +64,7 @@ colors = np.array(['tab:blue', 'tab:orange', 'tab:green',
                    'tab:cyan'])
 
 
-def waveplot(signal, sr, start_idx=0, figsize=(5, 3), color='tab:blue'):
+def waveplot(signal, sr, start_idx=0, figsize=(10, 3), color='tab:blue'):
     """
     A waveform plot for a signal
     Inputs:
@@ -95,7 +99,7 @@ def combined_waveplot(signal, sr, segments, figsize=(10, 3), tick_interval=60):
         Inputs:
             - Signal (array): The waveform (1D)
             - sr (int): The frequency in Hz 
-                        (should be 16000 for the models in this repo)
+                        (should be 16000 for the models in the repo)
             - segments (list):  The diarization outputs (segment information)
             - figsize (tuple): Figsize passed into plt.figure()
             - tick_interval (float): Where to place ticks for xlabel 
