@@ -3,7 +3,7 @@
 (https://share.streamlit.io/yourGitHubName/yourRepo/yourApp/)
 -->
 
-# Challenge-2_BuildWithAI
+# **Vokal.**
 This is the repository for Challenge 2 in buildwithai.com competition 2021.
 
 ## Before starting development

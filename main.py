@@ -118,6 +118,7 @@ with col1:
     uploaded_files = st.file_uploader(
         "Upload audio file(s)",
         type=['wav','mp3','mp4'],
+
         accept_multiple_files=True,
         help="Choose to upload single or multiple files of format .wav, .mp3 and .mp4"
     )
@@ -144,7 +145,6 @@ with col1:
         os.rmdir(temp_path)
 
         st.error("Audio files deleted!")
-        
 
 with col2:
     # Displays dropdown menu if number of files > 1
