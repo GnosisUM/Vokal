@@ -73,8 +73,8 @@ def generate_attributes():
     for i in range(2):
         st.write(f"**Speaker {i}'s Attributes**")
         attr1 = {
-            'Voice Attributes': [random.choice(v_attr1), random.choice(v_attr2)],
-            'Confidence': [random.uniform(0.5, 1), random.uniform(0.5, 1)]
+            'Voice Attributes': [random.choice(v_attr1)],
+            'Confidence': [random.uniform(0.5, 1)]
         }
         df = pd.DataFrame(attr1, index=None)
         # df.index.name = 'Voice Attributes'
