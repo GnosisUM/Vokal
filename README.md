@@ -1,3 +1,8 @@
+![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)
+<!---
+(https://share.streamlit.io/yourGitHubName/yourRepo/yourApp/)
+-->
+
 # **Vokal.**
 This is the repository for Challenge 2 in buildwithai.com competition 2021.
 
