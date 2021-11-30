@@ -19,3 +19,5 @@ This is the repository for Challenge 2 in [Build with AI](https://www.buildwitha
    
 5. To run, you must use this in a Linux machine and run the following command:
    `streamlit run main.py`
+
+![aa](https://user-images.githubusercontent.com/63910911/144020698-ec92eb41-9d84-4f1f-a9de-9368bfb8acee.png)
