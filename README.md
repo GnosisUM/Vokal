@@ -4,9 +4,12 @@
 -->
 
 # **Vokal.**
+
+Vokal. is an audio analytics web app that predicts some attributes i.e. gender of sepaker, number of speakers, tone etc. from an audio file.
+
 This is the repository for Challenge 2 in [Build with AI](https://www.buildwithai.com) Hackathon 2021.
 
-## Before starting development
+## Setup and Running Vokal.
 
 1. `git clone` this repository into your local machine directory
    
@@ -21,3 +24,10 @@ This is the repository for Challenge 2 in [Build with AI](https://www.buildwitha
    `streamlit run main.py`
 
 ![aa](https://user-images.githubusercontent.com/63910911/144020698-ec92eb41-9d84-4f1f-a9de-9368bfb8acee.png)
+
+## Contributors
+
+- @waizwafiq
+- @escornbar
+- @alifmazli
+- @zyadzarin
